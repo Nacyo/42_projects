@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 14:34:35 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/13 17:06:58 by ynacache         ###   ########.fr       */
+/*   Created: 2017/11/13 18:29:08 by ynacache          #+#    #+#             */
+/*   Updated: 2017/11/13 20:23:14 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strlowcase(char *str)
 {
-	char	*new;
-	int		k;
-	int		i;
+	int index;
 
-	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	k = ft_strlen(s1) + ft_strlen(s2);
-	if (!(new = (char *)malloc(k + 1)))
-		return (NULL);
-	while (s1[i] != '\0')
+	index = 0;
+	while (str[index] != '\0')
 	{
-		new[i] = s1[i];
-		i++;
+		if (str[index] <= 'Z' && str[index] >= 'A')
+			str[index] = str[index] + 32;
+		index++;
 	}
-	k = 0;
-	while (s2[k] != '\0')
-	{
-		new[i] = s2[k];
-		k++;
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	return (str);
 }

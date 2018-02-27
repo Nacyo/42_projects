@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:53:42 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/11 18:26:39 by ynacache         ###   ########.fr       */
+/*   Created: 2018/01/05 10:53:51 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/05 11:46:27 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strchr(const char *s, int c)
+unsigned	ft_abs(int nb)
 {
-	while (*s)
-	{
-		if (*(char *)s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	return ((char)c == '\0' ? (char *)s : NULL);
+	return ((nb < 0) ? -(unsigned int)nb : (unsigned int)nb);
 }

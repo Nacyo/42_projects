@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 19:31:37 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/10 20:56:13 by ynacache         ###   ########.fr       */
+/*   Created: 2017/11/10 16:53:31 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/21 17:37:19 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <libft.h>
 
-static int	ft_strlen_static(const char *s1)
+int			ft_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
-
-	i = 0;
-	while (s1[i] != '\0')
-		i++;
-	return (i);
-}
-
-char		*ft_strdup(const char *s1)
-{
-	char	*result;
-	int		i;
-
-	i = 0;
-	if (!(result = (char *)malloc(ft_strlen_static(s1) + 1)))
-		return (NULL);
-	while (s1[i] != '\0')
+	if (s1 == NULL || s2 == NULL)
 	{
-		result[i] = s1[i];
-		i++;
+		if (s1 == s2)
+			return (0);
+		return (1);
 	}
-	result[i] = '\0';
-	return (result);
+	while (*s1 == *s2 && *s1)
+	{
+		++s1;
+		++s2;
+	}
+	return (*(unsigned char*)s1 - *(unsigned char*)s2);
 }

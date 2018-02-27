@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 10:31:07 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/13 16:32:54 by ynacache         ###   ########.fr       */
+/*   Created: 2017/11/08 14:34:35 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/21 17:48:20 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
+	char	*new;
+	int		k;
+	int		i;
 
 	i = 0;
-	while (i < len && src[i] != '\0')
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	k = ft_strlen(s1) + ft_strlen(s2);
+	if (!(new = (char *)malloc(k + 1)))
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		dst[i] = ((char *)src)[i];
-		i++;
+		new[i] = s1[i];
+		++i;
 	}
-	while (i < len)
+	k = 0;
+	while (s2[k] != '\0')
 	{
-		dst[i] = '\0';
-		i++;
+		new[i] = s2[k];
+		++k;
+		++i;
 	}
-	return (dst);
+	new[i] = '\0';
+	return (new);
 }

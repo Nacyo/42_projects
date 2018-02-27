@@ -6,11 +6,11 @@
 /*   By: emarin <emarin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 18:19:52 by emarin            #+#    #+#             */
-/*   Updated: 2017/11/18 12:10:02 by emarin           ###   ########.fr       */
+/*   Updated: 2018/02/27 16:11:20 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include <fillit.h>
 #include <stdlib.h>
 
 int			ft_collision(char **grid, int *ij, char *part)

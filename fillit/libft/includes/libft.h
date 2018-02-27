@@ -6,7 +6,7 @@
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 14:59:06 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/13 18:38:38 by ynacache         ###   ########.fr       */
+/*   Updated: 2018/01/09 15:47:46 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,11 @@ int					ft_isodd(int c);
 char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
 int					ft_str_is_printable(char *str);
+int					ft_free(size_t n, ...);
+unsigned			ft_abs(int nb);
+char				*ft_int_to_base(long long n, char *base);
+
+char				*ft_strndup(const char *s1, int n);
+long				ft_latoi(const char *str);
+
 #endif

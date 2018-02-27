@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 17:38:37 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/13 12:28:41 by ynacache         ###   ########.fr       */
+/*   Created: 2018/01/02 15:47:26 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/05 11:46:35 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <stdlib.h>
 
-char	*ft_strnew(size_t size)
+int		ft_free(size_t n, ...)
 {
-	char	*new;
-	size_t	i;
+	void	*del;
+	va_list ap;
 
-	i = 0;
-	if (!(new = (char *)malloc(size + 1)))
-		return (NULL);
-	while (i <= size)
-	{
-		new[i] = '\0';
-		i++;
-	}
-	return (new);
+	va_start(ap, n);
+	while (n-- > 0)
+		free((del = va_arg(ap, void *)));
+	va_end(ap);
+	return (1);
 }

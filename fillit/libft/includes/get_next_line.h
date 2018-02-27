@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 20:07:46 by ynacache          #+#    #+#             */
-/*   Updated: 2017/11/13 21:41:55 by ynacache         ###   ########.fr       */
+/*   Created: 2017/11/14 20:55:07 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/21 17:52:48 by ynacache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t i;
+# define BUFF_SIZE 3
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
+int	get_next_line(const int fd, char **line);
+
+#endif
