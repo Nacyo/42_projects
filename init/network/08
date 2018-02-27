@@ -1,0 +1,5 @@
+aws
+#host -t ns slash16.org
+#nslookup
+#set type=SOA
+#slash16.org

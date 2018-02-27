@@ -1,0 +1,1 @@
+ifconfig en1 | grep "ether" | sed -e 's/ether //g'| tr "\t" " "
