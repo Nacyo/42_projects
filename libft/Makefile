@@ -6,7 +6,7 @@
 #    By: ynacache <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/08 10:26:25 by ynacache          #+#    #+#              #
-#    Updated: 2018/01/09 17:21:38 by ynacache         ###   ########.fr        #
+#    Updated: 2018/06/24 17:22:25 by ynacache         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,11 +79,38 @@ FILES = srcs/ft_strlen.c \
 		srcs/bonus/ft_strupcase.c \
 		srcs/bonus/ft_strndup.c \
 		srcs/bonus/ft_latoi.c \
-		srcs/gnl/get_next_line.c
+		srcs/gnl/get_next_line.c \
+		srcs/ft_printf/printf/ft_printf.c \
+		srcs/ft_printf/printf/ft_dprintf.c \
+		srcs/ft_printf/printf/ft_vasprintf.c \
+		srcs/ft_printf/check/ft_parse.c \
+		srcs/ft_printf/check/ft_check.c \
+		srcs/ft_printf/check/ft_initarg.c \
+		srcs/ft_printf/check/ft_forest.c \
+		srcs/ft_printf/check/ft_checkconv.c \
+		srcs/ft_printf/ft_strfreejoin.c \
+		srcs/ft_printf/conv/ft_wchart.c \
+		srcs/ft_printf/conv/ft_wchart_2.c \
+		srcs/ft_printf/conv/ft_getheight.c \
+		srcs/ft_printf/conv/ft_conv_bigs.c \
+		srcs/ft_printf/conv/ft_conv_bigs_2.c \
+		srcs/ft_printf/conv/ft_conv_s.c \
+		srcs/ft_printf/conv/ft_fill_str_ud.c \
+		srcs/ft_printf/conv/ft_conv_d.c \
+		srcs/ft_printf/conv/ft_conv_o.c \
+		srcs/ft_printf/conv/ft_conv_u.c \
+		srcs/ft_printf/conv/ft_conv_x.c \
+		srcs/ft_printf/conv/ft_conv_c.c \
+		srcs/ft_printf/conv/ft_conv_n.c \
+		srcs/ft_printf/conv/ft_conv_modulo.c \
+		srcs/ft_printf/conv/ft_conv_invalid.c \
+		srcs/ft_printf/conv/ft_case_conv_0.c \
 
 HFILES = includes/libft.h \
-		includes/get_next_line.h
-
+		 includes/get_next_line.h \
+		 includes/ft_printf.h \
+		 includes/ft_printf_2.h \
+		 includes/ft_printf_struct.h \
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -100,11 +127,10 @@ $(NAME): $(OBJS_DIR) $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-$(OBJS_DIR)%.o: %.c $(HFILES) $(OBJS_DIR)
+$(OBJS_DIR)%.o: %.c $(HFILES)
 	$(CC) -c $(INC) $< -o $@ $(CFLAGS)
 
 $(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
 	mkdir -p $(dir $(OBJS))
 
 clean:

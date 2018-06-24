@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_modulo.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ynacache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/03 15:16:23 by ynacache          #+#    #+#             */
+/*   Updated: 2018/01/03 15:16:37 by ynacache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ft_printf_2.h>
+
+int		ft_conv_modulo(char **ret, t_arg *arg)
+{
+	char	*tmp;
+	size_t	size;
+
+	size = 1;
+	if (arg->wi > 0)
+		size = arg->wi;
+	if (!(tmp = ft_strnew(size)))
+		return (ERROR);
+	if (arg->flag.zero == 1 && arg->flag.minus == 0)
+		ft_memset(tmp, '0', size);
+	else if (!(ft_memset(tmp, ' ', size)))
+		return (ERROR);
+	if (arg->flag.minus == 1)
+		tmp[0] = '%';
+	else
+		tmp[size - 1] = '%';
+	if (!(*ret = ft_strfreejoin(*ret, tmp, size, arg)))
+		return (ERROR);
+	arg->cmpt += size;
+	free(tmp);
+	return (SUCCESS);
+}
